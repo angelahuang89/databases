@@ -8,8 +8,8 @@ var mysql = require('mysql');
 exports.dbConnection = mysql.createConnection({
   host: "localhost",
   database: "chat",
-  user: "root",
-  password: ""
+  user: "student", // root
+  password: "student" // plantlife
 });
 
 exports.dbConnection.connect(function(err) {
