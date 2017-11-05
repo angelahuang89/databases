@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS `messages`;
 CREATE TABLE `messages` (
   `messageid` INTEGER NOT NULL AUTO_INCREMENT,
   `text` VARCHAR(140) NULL DEFAULT NULL,
-  `username` VARCHAR(20) NULL DEFAULT NULL,
+  -- `username` VARCHAR(20) NULL DEFAULT NULL,
   `roomname` VARCHAR(20) NULL DEFAULT NULL,
   `userid` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`messageid`)
@@ -35,7 +35,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`userid`)
 );
 
-DROP TABLE IF EXISTS `rooms`;
+-- DROP TABLE IF EXISTS `rooms`;
     
 -- CREATE TABLE `rooms` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,

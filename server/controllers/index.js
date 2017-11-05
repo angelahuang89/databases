@@ -7,6 +7,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
+          // res.send(result);
           res.json(results);
         }
       });
@@ -18,6 +19,7 @@ module.exports = {
           throw error;
         } else {
           res.sendStatus(201);
+          // res.send('Database updated!');
           res.end();
         }
       });
