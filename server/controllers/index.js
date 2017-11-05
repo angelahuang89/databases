@@ -3,17 +3,17 @@ var models = require('../models');
 module.exports = {
   messages: {
     get: function (req, res) {
-      model.messages.get(function(error, results) {
-      	if (error) {
-      	  throw error;
-      	} else {
-      	  res.json(results);
-      	}
+      models.messages.get(function(error, results) {
+        if (error) {
+          throw error;
+        } else {
+          res.json(results);
+        }
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       var message = [req.body.message, req.body.roomname, req.body.username];
-      model.messages.post(message, function(error, results) {
+      models.messages.post(message, function(error, results) {
         if (error) {
           throw error;
         } else {
@@ -28,12 +28,12 @@ module.exports = {
     // Ditto as above
     get: function (req, res) {
       models.users.get(function(error, results) {
-      	if (error) {
+        if (error) {
           throw error;
-      	} else {
-      	  res.json(results);
-      	}
-      })
+        } else {
+          res.json(results);
+        }
+      });
     },
     post: function (req, res) {
       var user = [req.body.username];

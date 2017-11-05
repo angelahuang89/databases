@@ -3,8 +3,8 @@ var db = require('../db');
 module.exports = {
   messages: {
     get: function (callback) {
-      db.dbConnection.query('SELECT * FROM messages', function(err, results) {
-        if (err) {
+      db.query('SELECT * FROM messages', function(error, results) {
+        if (error) {
           throw error;
         } else {
           callback(results);
@@ -13,8 +13,8 @@ module.exports = {
     }, // a function which produces all the messages
     post: function (message, callback) {
       var queryString = 'INSERT INTO messages (text, roomname, userid) VALUES (?, ?, (select userid from users where username = ?))';
-      db.dbConnection.query(queryString, message, function(err, results) {
-        if (err) {
+      db.query(queryString, message, function(error, results) {
+        if (error) {
           throw error;
         } else {
           callback(results);
@@ -26,24 +26,24 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function (callback) {
-      db.dbConnection.query('SELECT * FROM users', function(err, results) {
-        if (err) {
+      db.query('SELECT * FROM users', function(error, results) {
+        if (error) {
           throw error;
         } else {
           callback(results);
         }
-      })
+      });
 
     },
     post: function (username, callback) {
       var queryString = 'INSERT INTO users (username) VALUES(?)';
-      db.dbConnection.query(queryString, username, function(err, results) {
-        if (err) {
+      db.query(queryString, username, function(error, results) {
+        if (error) {
           throw error;
         } else {
           callback(results);
         }
-      })
+      });
     }
   }
 };
